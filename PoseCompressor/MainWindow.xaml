@@ -1,0 +1,52 @@
+﻿<Window x:Class="PoseCompressor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PoseCompressor"
+        mc:Ignorable="d"
+        Title="Pose Compressor" Height="150" Width="250"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="selectButton" Grid.Row="0" Content=" 选择原始存档 " HorizontalAlignment="Left" IsDefault="True" Click="selectButton_Click"/>
+        <Button x:Name="cancelButton" Grid.Row="0" Content=" 取消选择 " HorizontalAlignment="Right" Visibility="Hidden" IsCancel="True" Click="cancelButton_Click"/>
+        <Button x:Name="startButton" Grid.Row="1" Height="30" Width="80" VerticalAlignment="Center" Content=" 开始压缩 " FontSize="12" IsEnabled="False" IsDefault="True" Click="startButton_Click"/>
+        <TextBlock x:Name="fileNameBlock" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Grid Grid.Row="1" Margin="0 10 0 0" x:Name="compressingGrid" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="saveButton" Grid.Row="0" Grid.Column="1" Content=" 保存结果 " IsDefault="True" Visibility="Hidden" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 0 5" Click="saveButton_Click"/>
+            <ProgressBar x:Name="progressBar" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="0" Height="12"/>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left">原始大小：</TextBlock>
+                <TextBlock x:Name="sizeBlock" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">动作时长：</TextBlock>
+                <TextBlock x:Name="timeSpanBlock" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left">已经完成：</TextBlock>
+                <TextBlock x:Name="progressBlock" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"/>
+                
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

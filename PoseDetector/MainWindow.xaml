@@ -1,0 +1,137 @@
+﻿<Window x:Class="PoseDetector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pose_Detector"
+        mc:Ignorable="d"
+        Icon="Images/Kinect.ico"
+        Title="Pose Detector"
+        Width="1150" Height="600"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Loaded="MainWindow_Loaded"
+        Closing="MainWindow_Closing">
+    <Window.Resources>
+        <SolidColorBrush x:Key="MediumGreyBrush" Color="#ff6e6e6e" />
+        <SolidColorBrush x:Key="KinectPurpleBrush" Color="#ff52318f" />
+        <SolidColorBrush x:Key="KinectBlueBrush" Color="#ff00BCF2" />
+    </Window.Resources>
+    <Grid Margin="10 0 10 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="300"/>
+            <ColumnDefinition Width="*" MinWidth="500"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="0" Source="Images\Logo.png" HorizontalAlignment="Left" Stretch="Fill" Height="32" Width="81" Margin="0 10 0 5" Visibility="Hidden"/>
+        <Image Grid.Row="0" Source="Images\Status.png" Stretch="None" HorizontalAlignment="Center" />
+
+        <Viewbox Grid.Row="1" HorizontalAlignment="Center" MaxHeight="500" x:Name="viewBox">
+            <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
+        </Viewbox>
+
+        <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">
+            <StatusBarItem Content="{Binding StatusText}" />
+        </StatusBar>
+
+        <TabControl Grid.Row="1" Grid.Column="1" Margin="10 0 0 0" Name="tabController" MaxHeight="500">
+            <TabItem Header="Joints" x:Name="tabItem1">
+                <Grid x:Name="jointsDisplayPanel" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="formHeader0" Text="Joint Type" Grid.Row="0" Grid.Column="0" FontWeight="ExtraBold"/>
+                    <TextBlock x:Name="formHeader1" Text="Status" Grid.Row="0" Grid.Column="1" FontWeight="ExtraBold"/>
+                    <TextBlock x:Name="formHeaderX0" Text="X" Grid.Row="0" Grid.Column="2" FontWeight="ExtraBold"/>
+                    <TextBlock x:Name="formHeaderY0" Text="Y" Grid.Row="0" Grid.Column="3" FontWeight="ExtraBold"/>
+                    <TextBlock x:Name="formHeaderZ0" Text="Z" Grid.Row="0" Grid.Column="4" FontWeight="ExtraBold"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Bones" x:Name="tabItem2">
+                <Grid x:Name="bonesDisplayPanel" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.25*"/>
+                        <ColumnDefinition Width="1.25*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="formHeader2" Text="Joint 1" Grid.Row="0" Grid.Column="0" FontWeight="ExtraBold"/>
+                    <TextBlock x:Name="formHeader3" Text="Joint 2" Grid.Row="0" Grid.Column="1" FontWeight="ExtraBold"/>
+                    <TextBlock x:Name="formHeaderX1" Text="X" Grid.Row="0" Grid.Column="2" FontWeight="ExtraBold"/>
+                    <TextBlock x:Name="formHeaderY1" Text="Y" Grid.Row="0" Grid.Column="3" FontWeight="ExtraBold"/>
+                    <TextBlock x:Name="formHeaderZ1" Text="Z" Grid.Row="0" Grid.Column="4" FontWeight="ExtraBold"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Button x:Name="startButton" Content="Start Recording" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Width="110" HorizontalAlignment="Right" Margin="0 0 110 0" Background="WhiteSmoke" IsDefault="True" Click="startButton_Click"/>
+        <Button x:Name="endButton" Content="End Recording" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Width="100" HorizontalAlignment="Right" Margin="0 0 0 0" Background="White" IsEnabled="False" IsDefault="True" Click="endButton_Click"/>
+    </Grid>
+</Window>
